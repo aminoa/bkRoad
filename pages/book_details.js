@@ -18,7 +18,8 @@ export default function Book_Details() {
           Welcome to Book Details
         </h1>
 
-        <Book name="Book Name" returnDate="Test Date" status="In stock"></Book>
+        {/* <Book name="Book Name" returnDate="Test Date" status="In stock"></Book> */}
+        <Book name="Book Name" returnDate="Test Date" status="In stock" url="" description="Test description"/>
 
       </main>
 
