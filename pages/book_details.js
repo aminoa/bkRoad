@@ -13,7 +13,7 @@ export default function Book_Details() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Book_Details
+          Welcome to Book Details
         </h1>
 
       </main>
