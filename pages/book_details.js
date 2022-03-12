@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Book from '../components/book'
+
 
 export default function Book_Details() {
   return (
@@ -15,6 +17,9 @@ export default function Book_Details() {
         <h1 className={styles.title}>
           Welcome to Book Details
         </h1>
+
+        {/* <Book name="Book Name" returnDate="Test Date" status="In stock"></Book> */}
+        <Book name="Book Name" returnDate="Test Date" status="In stock" url="" description="Test description"/>
 
       </main>
 
