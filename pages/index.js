@@ -8,9 +8,13 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import BookIcon from '@mui/icons-material/Book';
 import Footer from '../components/footer';
+import Book from "../components/book.js";
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+
+
 
 class Search extends React.Component {
   constructor(props) {
@@ -56,14 +60,14 @@ class Search extends React.Component {
             }}
           />
         </div>
-    )
+    ) 
   }
 }
 
 function LibraryButton() {
   return (
     <div className={styles.libraryaccount}>
-      <Link className={styles.librarylink} href="/library"><IconButton color="primary"> <BookIcon fontSize="large" /></IconButton></Link>
+      <Link className={styles.librarylink} href="/shelf"><IconButton color="primary"> <BookIcon fontSize="large" /></IconButton></Link>
       <Link href="/settings"><IconButton color="primary"><AccountCircleIcon fontSize="large"/></IconButton></Link>
     </div>
   )
@@ -80,7 +84,7 @@ function LoginButton() {
 class LoginItems extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loggedIn: false} //should be passed in from db or something, set here for testing
+    this.state = {loggedIn: true} //should be passed in from db or something, set here for testing
   }
 
   render() {
@@ -95,6 +99,43 @@ class LoginItems extends React.Component {
         }
       </div>
     )
+  }
+}
+
+class BookShelf extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <Grid container spacing={2}>
+        <Grid item xs={2}>
+          <Book 
+            name="The Queen of Paris: A Novel of Coco Chanel" 
+            author="Sonic"
+            returnDate="Test Date" 
+            status="In stock" 
+            url="https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1" 
+            description="Test description"
+            height="300"
+            width="180"
+          />
+        </Grid>
+        <Grid item xs={2}>
+          <Book 
+            name="The Queen of Paris: A Novel of Coco Chanel" 
+            author="Sonic"
+            returnDate="Test Date" 
+            status="In stock" 
+            url="https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1" 
+            description="Test description"
+            height="300"
+            width="180"
+          />
+        </Grid>
+      </Grid>
+    )    
   }
 }
 
@@ -113,6 +154,8 @@ export default function Home() {
         <LoginItems />
       </div>
 
+      <h1>Explore Some Personalized Recommendations</h1>
+      <BookShelf />
       <Footer />
     </div>
   )
