@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Footer from "../components/footer.js"
 
 
 class LoginForm extends React.Component {
@@ -60,6 +61,9 @@ export default function Login() {
       <main className={styles.main}>
         <LoginForm />
       </main> 
+
+      <Footer />
+    
     </div>
   )
 }
