@@ -26,52 +26,48 @@ class Home extends React.Component{
     super(props);
     this.state = {loggedIn: true, search: ''} //should be passed in from somewhere else
     this.textChange = this.textChange.bind(this);
-    this.textSubmit = this.textSubmit.bind(this);
+    // this.textSubmit = this.textSubmit.bind(this);
     this.state.books = this.props.books;
-    this.OriginalBooks = this.books;
+    this.OriginalBooks = this.state.books;
   }
 
   textChange(event) {
     this.setState({search: event.target.value})
-    // if (!event.target.value) { 
+    if (!event.target.value) {
       // console.log("empty");
-      // this.books = this.OriginalBooks;
-    // }
-
-    console.log(this.state.books);
-    event.preventDefault();
-    // console.log(event);
-  }
-  
-  textSubmit(event) {
-    if (event.which == 13) { //13 is code for enter
-      var changeBooks = this.state.books;
+      // console.log(this.OriginalBooks);
+      this.setState({books: this.OriginalBooks});
+    }
+    else {
+      var changeBooks = this.OriginalBooks;
       var searchTerm = this.state.search;
       // console.log(searchTerm);
       changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
       // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
       console.log(changeBooks);
       this.setState({books: changeBooks});
-
-      // changeBooks.splice(0, 1);
-      // console.log(this.state.search); 
-      
-      // for (var i = 0; i < changeBooks.length; i++) {  
-        // var bookTitle = changeBooks[i].title.toLowerCase();
-        // var searchTerm = this.state.search.toLowerCase();
-
-        // if (!bookTitle.includes(searchTerm)) {
-          // console.log(bookTitle)
-          // changeBooks.splice(i, 1); 
-        // }
-        // if (!changeBooks[i].title.includes(this.state.search)) {
-          // changeBooks.splice(i, 1);
-        // }
-      // console.log(changeBooks);
-      
-      // pass props to new search page 
     }
+    // if (!event.target.value) { 
+      // console.log("empty");
+      // this.books = this.OriginalBooks;
+    // }
+    event.preventDefault();
+    // console.log(event);
   }
+  
+  // textSubmit(event) {
+    // if (event.which == 13) { //13 is code for enter
+    //   var changeBooks = this.state.books;
+    //   var searchTerm = this.state.search;
+    //   // console.log(searchTerm);
+    //   changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
+    //   // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
+    //   console.log(changeBooks);
+    //   this.setState({books: changeBooks});
+
+    //   // pass props to new search page 
+    // }
+  // }
 
   render() {
     return (
