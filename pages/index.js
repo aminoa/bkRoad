@@ -27,25 +27,48 @@ class Home extends React.Component{
     this.state = {loggedIn: true, search: ''} //should be passed in from somewhere else
     this.textChange = this.textChange.bind(this);
     this.textSubmit = this.textSubmit.bind(this);
-    this.books = this.props.books;
+    this.state.books = this.props.books;
+    this.OriginalBooks = this.books;
   }
 
   textChange(event) {
     this.setState({search: event.target.value})
+    // if (!event.target.value) { 
+      // console.log("empty");
+      // this.books = this.OriginalBooks;
+    // }
+
+    console.log(this.state.books);
     event.preventDefault();
     // console.log(event);
   }
   
   textSubmit(event) {
     if (event.which == 13) { //13 is code for enter
-      const changeBooks = this.books;
-      for (var i = 0; i < changeBooks; i++) { 
-        if (!changeBooks[i].title.includes(this.state.search)) {
-          changeBooks.splice(i, 1);
-        }
-      }
-      // console.log(changeBooks);
+      var changeBooks = this.state.books;
+      var searchTerm = this.state.search;
+      // console.log(searchTerm);
+      changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
+      // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
+      console.log(changeBooks);
       this.setState({books: changeBooks});
+
+      // changeBooks.splice(0, 1);
+      // console.log(this.state.search); 
+      
+      // for (var i = 0; i < changeBooks.length; i++) {  
+        // var bookTitle = changeBooks[i].title.toLowerCase();
+        // var searchTerm = this.state.search.toLowerCase();
+
+        // if (!bookTitle.includes(searchTerm)) {
+          // console.log(bookTitle)
+          // changeBooks.splice(i, 1); 
+        // }
+        // if (!changeBooks[i].title.includes(this.state.search)) {
+          // changeBooks.splice(i, 1);
+        // }
+      // console.log(changeBooks);
+      
       // pass props to new search page 
     }
   }
@@ -63,7 +86,7 @@ class Home extends React.Component{
   
         <h1>Explore Your Personalized Recommendations</h1>
         <div className={styles.bookdisplay}>
-          <BookDisplay books={this.books}/>
+          <BookDisplay books={this.state.books}/>
         </div>
   
         <Footer />
