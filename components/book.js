@@ -11,31 +11,34 @@ export default class Book extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
+      author: this.props.author,
       status: this.props.status,
       description: this.props.description,
       returnDate: this.props.returnDate,
-      imageURL: this.props.url,
+      imageURL: this.props.imageURL,
+      height: this.props.height,
+      width: this.props.width
     }
   }
 
   render() {
     return (
       <div className={styles.bookCard}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{maxWidth: parseInt(this.props.width)}}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="140"
-            image="/static/images/cards/contemplative-reptile.jpg"
+            height={this.props.height}
+            image={this.props.imageURL}
             alt="green iguana"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {this.state.name}
+            <Typography gutterBottom variant="body1" component="div">
+              {this.props.name}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {this.state.description}
-            </Typography>
+              {this.state.author} 
+            </Typography> 
           </CardContent>
         </CardActionArea>
       </Card>
@@ -43,54 +46,3 @@ export default class Book extends React.Component {
     )
   }
 }
-
-// export default class BookCard extends React.Component {
-//   render(){
-//   return (
-//     <div className={styles.bookCard}>
-//       <Card sx={{ maxWidth: 345 }}>
-//         <CardActionArea>
-//           <CardMedia
-//             component="img"
-//             height="140"
-//             image="/static/images/cards/contemplative-reptile.jpg"
-//             alt="green iguana"
-//           />
-//           <CardContent>
-//             <Typography gutterBottom variant="h5" component="div">
-//               Lizard
-//             </Typography>
-//             <Typography variant="body2" color="text.secondary">
-//               <Book name="Test Book Name" description="Test description" />
-//             </Typography>
-//           </CardContent>
-//         </CardActionArea>
-//       </Card>
-//     </div>
-//   );
-//   }
-// }
-
-// class Book extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       name: this.props.name,
-//       status: this.props.status,
-//       returnDate: this.props.returnDate,
-//     }
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         {/* <Image></Image> */}
-//         <div>{this.props.name}</div>
-//         <div>{this.props.status}</div>
-//         <div>{this.props.date}</div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Book;

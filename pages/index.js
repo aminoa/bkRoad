@@ -8,9 +8,12 @@ import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import BookIcon from '@mui/icons-material/Book';
 import Footer from '../components/footer';
+import Book from "../components/book.js";
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
+import BookDisplay from '../components/book_display';
 
 class Search extends React.Component {
   constructor(props) {
@@ -45,7 +48,7 @@ class Search extends React.Component {
             onChange={this.handleChange}
             name="search"
             size="small" 
-            fullWidth="true"
+            fullWidth="true" //causes some errors but site still works
             margin="dense"
             InputProps={{
               startAdornment: (
@@ -56,14 +59,14 @@ class Search extends React.Component {
             }}
           />
         </div>
-    )
+    ) 
   }
 }
 
 function LibraryButton() {
   return (
     <div className={styles.libraryaccount}>
-      <Link className={styles.librarylink} href="/library"><IconButton color="primary"> <BookIcon fontSize="large" /></IconButton></Link>
+      <Link className={styles.librarylink} href="/shelf"><IconButton color="primary"> <BookIcon fontSize="large" /></IconButton></Link>
       <Link href="/settings"><IconButton color="primary"><AccountCircleIcon fontSize="large"/></IconButton></Link>
     </div>
   )
@@ -80,12 +83,12 @@ function LoginButton() {
 class LoginItems extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loggedIn: false} //should be passed in from db or something, set here for testing
+    this.state = {loggedIn: true} //should be passed in from db or something, set here for testing
   }
 
   render() {
     const loggedIn = this.state.loggedIn;
-    console.log(loggedIn);
+    // console.log(loggedIn);
 
     return (
       <div>
@@ -98,7 +101,8 @@ class LoginItems extends React.Component {
   }
 }
 
-export default function Home() {
+export default function Home({ books }) {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -113,7 +117,44 @@ export default function Home() {
         <LoginItems />
       </div>
 
+      <h1>Explore Your Personalized Recommendations</h1>
+      <div className={styles.bookdisplay}>
+      <BookDisplay books={books}/>
+      </div>
+
       <Footer />
     </div>
   )
+} 
+
+export async function getServerSideProps(context) {
+  const books = [
+      {
+          title: "The Queen of Paris: A Novel of Coco Chanel",
+          author: "Pamela Binnings Ewen" ,
+          imageURL: "https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1",
+          description: "Legendary fashion designer Coco Chanel is revered for her sophisticated style -- the iconic little black dress -- and famed for her intoxicating perfume Chanel No. 5. Yet behind the public persona is a complicated woman of intrigue, shadowed by mysterious rumors. The Queen of Paris, the new novel from award-winning author Pamela Binnings Ewen, vividly imagines the hidden life of Chanel during the four years of Nazi occupation in Paris in the midst of WWII -- as discovered in recently unearthed wartime files.",
+          status: "In stock"            
+      },
+      {
+          title: "The wonders",
+          author: "Medel, Elena" ,
+          imageURL: "https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781643753027&erroroverride=1",
+          description: "Through the rich inner lives of two ordinary, unforgettable women, award-winning Spanish poet Elena Medel brings a half-century of the feminist movement to life, revealing the simmering truth that money is ultimately the limiting factor in most women's lives",
+          status: "Not available"          
+      },
+      {
+          title: "East of hounslow",
+          author: "Khurrum Rahman" ,
+          imageURL: "https://browse.nypl.org/iii/encore/record/C__Rb22716763?lang=eng&source=NewArrivals",
+          description: "No description available",
+          status: "In stock"
+      }
+  ]
+
+  return {
+      props: {
+          books
+      }
+  }
 }

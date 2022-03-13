@@ -14,12 +14,17 @@ export default function Book_Details() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to Book Details
-        </h1>
 
         {/* <Book name="Book Name" returnDate="Test Date" status="In stock"></Book> */}
-        <Book name="Book Name" returnDate="Test Date" status="In stock" url="" description="Test description"/>
+        <Book 
+          name="The Queen of Paris: A Novel of Coco Chanel" 
+          returnDate="Test Date" 
+          status="In stock" 
+          url="https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1" 
+          description="Test description"
+          height="300"
+          width="200"
+        />
 
       </main>
 
