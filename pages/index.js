@@ -14,92 +14,11 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import BookDisplay from '../components/book_display';
+import SearchBar from '../components/searchbar';
+import LoginItems from "../components/loginitems"
+import Header from "../components/header"
 
-class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {search: ''}
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  handleChange(event) {
-    this.setState({search: event.target.value})
-    event.preventDefault();
-    // console.log(event);
-  }
-
-  handleSubmit(event) {
-    if (event.which == 13) { //13 is code for enter
-      // console.log
-      //pass props to new search page 
-    }
-  }
-
-  render() {
-    return (
-        <div className={styles.search} onSubmit={this.handleSubmit}>
-          <TextField 
-            id="search" 
-            type="search"
-            // type="submit"
-            onKeyDown={this.handleSubmit}
-            variant="outlined" 
-            onChange={this.handleChange}
-            name="search"
-            size="small" 
-            fullWidth="true" //causes some errors but site still works
-            margin="dense"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              )
-            }}
-          />
-        </div>
-    ) 
-  }
-}
-
-function LibraryButton() {
-  return (
-    <div className={styles.libraryaccount}>
-      <Link className={styles.librarylink} href="/shelf"><IconButton color="primary"> <BookIcon fontSize="large" /></IconButton></Link>
-      <Link href="/settings"><IconButton color="primary"><AccountCircleIcon fontSize="large"/></IconButton></Link>
-    </div>
-  )
-}
-
-function LoginButton() {
-  return (
-    <div className={styles.loginbutton} > {/* onClick={this.handleLoginClick}*/}
-      <Button variant="contained" href="/login">Login</Button>
-    </div>
-  )
-}
-
-class LoginItems extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {loggedIn: true} //should be passed in from db or something, set here for testing
-  }
-
-  render() {
-    const loggedIn = this.state.loggedIn;
-    // console.log(loggedIn);
-
-    return (
-      <div>
-        {loggedIn
-          ?  <LibraryButton/>
-          : <LoginButton/>
-        }
-      </div>
-    )
-  }
-}
 
 export default function Home({ books }) {
 
@@ -112,10 +31,11 @@ export default function Home({ books }) {
       </Head>
 
       {/* search + cart */}
-      <div className={styles.topcontainer}>
-        <Search />
+      {/* <div className={styles.topcontainer}>
+        <SearchBar />
         <LoginItems />
-      </div>
+      </div> */}
+      <Header />
 
       <h1>Explore Your Personalized Recommendations</h1>
       <div className={styles.bookdisplay}>

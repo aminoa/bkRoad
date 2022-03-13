@@ -14,19 +14,31 @@
 }
 
 .topcontainer {
-  display: block;
-  text-align: center;
+  display: flex;
+  /* text-align: center; */
   /* margin-bottom: 10%; */
   /* outline: 1px solid black; */
-  padding-bottom: 5%;
+  /* padding-bottom: 5%; */
 }
 
 
 .search {
-  /* display: inline-block; */
-  width: 90%;
+  /* display: inline; */
+  width: 80%;
   float: left;
+  margin-left: 1%;
+  margin-right: 1%;
 }
+
+.logo {
+  /* display: inline; */
+  /* text-ali */
+  float: right;
+  margin-top: 1%;
+  /* padding-left: 1%;   */
+}
+
+
 
 .loginbutton {
   float: right;
