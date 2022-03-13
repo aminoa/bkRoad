@@ -26,29 +26,48 @@ class Home extends React.Component{
     super(props);
     this.state = {loggedIn: true, search: ''} //should be passed in from somewhere else
     this.textChange = this.textChange.bind(this);
-    this.textSubmit = this.textSubmit.bind(this);
-    this.books = this.props.books;
+    // this.textSubmit = this.textSubmit.bind(this);
+    this.state.books = this.props.books;
+    this.OriginalBooks = this.state.books;
   }
 
   textChange(event) {
     this.setState({search: event.target.value})
+    if (!event.target.value) {
+      // console.log("empty");
+      // console.log(this.OriginalBooks);
+      this.setState({books: this.OriginalBooks});
+    }
+    else {
+      var changeBooks = this.OriginalBooks;
+      var searchTerm = this.state.search;
+      // console.log(searchTerm);
+      changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
+      // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
+      console.log(changeBooks);
+      this.setState({books: changeBooks});
+    }
+    // if (!event.target.value) { 
+      // console.log("empty");
+      // this.books = this.OriginalBooks;
+    // }
     event.preventDefault();
     // console.log(event);
   }
   
-  textSubmit(event) {
-    if (event.which == 13) { //13 is code for enter
-      const changeBooks = this.books;
-      for (var i = 0; i < changeBooks; i++) { 
-        if (!changeBooks[i].title.includes(this.state.search)) {
-          changeBooks.splice(i, 1);
-        }
-      }
-      // console.log(changeBooks);
-      this.setState({books: changeBooks});
-      // pass props to new search page 
-    }
-  }
+  // textSubmit(event) {
+    // if (event.which == 13) { //13 is code for enter
+    //   var changeBooks = this.state.books;
+    //   var searchTerm = this.state.search;
+    //   // console.log(searchTerm);
+    //   changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
+    //   // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
+    //   console.log(changeBooks);
+    //   this.setState({books: changeBooks});
+
+    //   // pass props to new search page 
+    // }
+  // }
 
   render() {
     return (
@@ -63,7 +82,7 @@ class Home extends React.Component{
   
         <h1>Explore Your Personalized Recommendations</h1>
         <div className={styles.bookdisplay}>
-          <BookDisplay books={this.books}/>
+          <BookDisplay books={this.state.books}/>
         </div>
   
         <Footer />
