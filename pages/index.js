@@ -1,22 +1,9 @@
-import Head from 'next/head'
-import Button from '@mui/material/Button';
-import styles from '../styles/Home.module.css'
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import SearchIcon from '@mui/icons-material/Search';
-import Link from '@mui/material/Link';
-import IconButton from '@mui/material/IconButton';
-import BookIcon from '@mui/icons-material/Book';
-import Footer from '../components/footer';
-import Book from "../components/book.js";
+import Head from 'next/head';
 import React from 'react';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid';
 import BookDisplay from '../components/book_display';
-import SearchBar from '../components/searchbar';
-import LoginItems from "../components/loginitems"
-import Header from "../components/header"
+import Footer from '../components/footer';
+import Header from "../components/header";
+import styles from '../styles/Home.module.css';
 
 //header handles searching, so it needs to send book titles here, then can go down into bookdisplay
 
@@ -55,20 +42,6 @@ class Home extends React.Component{
     // console.log(event);
   }
   
-  // textSubmit(event) {
-    // if (event.which == 13) { //13 is code for enter
-    //   var changeBooks = this.state.books;
-    //   var searchTerm = this.state.search;
-    //   // console.log(searchTerm);
-    //   changeBooks = changeBooks.filter(a => (a.title.toLowerCase().includes(searchTerm.toLowerCase())));
-    //   // changeBooks = changeBooks.filter(function(a) {console.log(a); return (a == this.state.search.toLowerCase());} );
-    //   console.log(changeBooks);
-    //   this.setState({books: changeBooks});
-
-    //   // pass props to new search page 
-    // }
-  // }
-
   render() {
     return (
       <div className={styles.container}>
