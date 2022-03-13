@@ -40,18 +40,6 @@ export default class BookDisplay extends React.Component {
     return (
       <Grid container spacing={2}>
         {this.CreateBookList()}
-        {/* <Grid item xs={2}>
-          <Book
-            name={this.props.name}
-            author={this.props.author}
-            returnDate={this.props.returnDate}
-            status={this.props.status}
-            imageURL={this.props.imageURL}
-            description={this.props.description}
-            height={height}
-            width={width}
-          />
-        </Grid> */}
       </Grid>
     );
   }
