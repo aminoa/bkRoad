@@ -146,7 +146,7 @@ export async function getServerSideProps(context) {
       {
           title: "East of hounslow",
           author: "Khurrum Rahman" ,
-          imageURL: "https://browse.nypl.org/iii/encore/record/C__Rb22716763?lang=eng&source=NewArrivals",
+          imageURL: "https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9780008384661&erroroverride=1",
           description: "No description available",
           status: "In stock"
       }
