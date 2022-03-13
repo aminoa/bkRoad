@@ -5,6 +5,7 @@
 // import Link from '@mui/material/Link';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import HelpIcon from '@mui/icons-material/Help';
 import BookIcon from '@mui/icons-material/Book';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -21,13 +22,14 @@ function LibraryButton() {
     )
   }
   
-  function LoginButton() {
-    return (
-      <div className={styles.loginbutton} > {/* onClick={this.handleLoginClick}*/}
-        <Button variant="contained" href="/login">Login</Button>
-      </div>
-    )
-  }
+function LoginButton() {
+  return (
+    <div className={styles.loginbutton} > {/* onClick={this.handleLoginClick}*/}
+      <Button variant="contained" href="/login">Login</Button>
+    </div>
+  )
+}
+
 
 export default class LoginItems extends React.Component {
     constructor(props) {
@@ -45,6 +47,7 @@ export default class LoginItems extends React.Component {
             ?  <LibraryButton/>
             : <LoginButton/>
             }
+            <Link href="/about"><IconButton color="primary"><HelpIcon fontSize="large"/></IconButton></Link>
         </div>
         )
     }
