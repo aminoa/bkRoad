@@ -11,12 +11,10 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to About
-        </h1>
-
-      </main>
+      <h1 className={styles.title}> About Us </h1>
+      <body>bkRoad is a nonprofit organization founded to help deliver physical books to those in need. A large percent of the US population doesn't have 
+        access to physical books - by using bkRoad, those in need will get free and efficient access to books through a slick and easy to use web application. </body>
+      
 
     </div>
   )

@@ -25,6 +25,7 @@ class Shelf extends React.Component {
   
         <div>
           <h1>Shelf</h1>
+          <h2>Available for Delivery</h2>
           <div className={styles.bookdisplay}>
             <BookDisplay books={available}/>
           </div>        
@@ -41,7 +42,6 @@ export default function Take({ books }) {
     <Shelf books={books}/>
   )
 }
-
 
 export async function getServerSideProps(context) { //triet 
   const books = [
