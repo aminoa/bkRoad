@@ -6,10 +6,6 @@ export default class BookDisplay extends React.Component {
   constructor(props) {
     super(props);
     // var books = JSON.stringify(props.books);
-    this.state = {}
-    // for (var i = 0; i < this.props.books.length; i++) { couldn't get it to be set to localstate for some reason
-    //   this.state[i] = this.props.books[i];
-    // }
   }
 
     CreateBookList() {
@@ -34,7 +30,6 @@ export default class BookDisplay extends React.Component {
             );
         }
 
-        // console.log(books);
         return books;
     };
 

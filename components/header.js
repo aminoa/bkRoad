@@ -8,15 +8,14 @@ import styles from '../styles/Home.module.css';
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {loggedIn: true} //should be passed in from somewhere else
     }
 
     render() {
         return (
             <div className={styles.topcontainer}>
                 <Image className="logo" src="/../static/images/main_logo.png" height="62" width="137"/>
-                <SearchBar />
-                <LoginItems loggedIn={this.state.loggedIn}/>
+                <SearchBar textChange={this.props.textChange} textSubmit={this.props.textSubmit} />
+                <LoginItems loggedIn={this.props.loggedIn}/>
             </div>
         )
     }
