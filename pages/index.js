@@ -13,8 +13,7 @@ import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-
-
+import BookDisplay from '../components/book_display';
 
 class Search extends React.Component {
   constructor(props) {
@@ -102,43 +101,6 @@ class LoginItems extends React.Component {
   }
 }
 
-class BookShelf extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <Book 
-            name="The Queen of Paris: A Novel of Coco Chanel" 
-            author="Sonic"
-            returnDate="Test Date" 
-            status="In stock" 
-            url="https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1" 
-            description="Test description"
-            height="300"
-            width="180"
-          />
-        </Grid>
-        <Grid item xs={2}>
-          <Book 
-            name="The Queen of Paris: A Novel of Coco Chanel" 
-            author="Sonic"
-            returnDate="Test Date" 
-            status="In stock" 
-            url="https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781982546939&erroroverride=1" 
-            description="Test description"
-            height="300"
-            width="180"
-          />
-        </Grid>
-      </Grid>
-    )    
-  }
-}
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -155,8 +117,8 @@ export default function Home() {
       </div>
 
       <h1>Explore Some Personalized Recommendations</h1>
-      <BookShelf />
+      <BookDisplay />
       <Footer />
     </div>
   )
-}
+} 
