@@ -42,6 +42,13 @@
   /* padding-right: 1%; */
 }
 
+.bookdisplay {
+  /* outline: solid black 1px; */
+  border-radius: 2px;
+  background-color: rgb(255, 213, 219);
+  padding: 20px;
+}
+
 /* .librarylink {
   margin-right: 0.2%;
 } */

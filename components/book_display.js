@@ -6,11 +6,10 @@ export default class BookDisplay extends React.Component {
   constructor(props) {
     super(props);
     // var books = JSON.stringify(props.books);
-    this.state = {books: []}
-    // for (var i = 0; i < this.props.books.length; i++) {
+    this.state = {}
+    // for (var i = 0; i < this.props.books.length; i++) { couldn't get it to be set to localstate for some reason
     //   this.state[i] = this.props.books[i];
     // }
-
   }
 
     CreateBookList() {
@@ -18,22 +17,25 @@ export default class BookDisplay extends React.Component {
         var height = "300";
         var width = "180";
 
-        for (var i = 0; i < this.state.length; ++i) {
+        for (var i = 0; i < this.props.books.length; ++i) {
             books.push(
-            <Grid item xs={2}>
-                <Book
-                name={this.state[i].name}
-                author={this.state[i].author}
-                returnDate={this.state[i].returnDate}
-                status={this.state[i].status}
-                imageURL={this.state[i].imageURL}
-                description={this.state[i].description}
-                height={height}
-                width={width}
-                />
-            </Grid>
+                <Grid item xs={2}>
+                    <Book
+                    name={this.props.books[i].name}
+                    author={this.props.books[i].author}
+                    returnDate={this.props.books[i].returnDate}
+                    status={this.props.books[i].status}
+                    imageURL={this.props.books[i].imageURL}
+                    description={this.props.books[i].description}
+                    height={height}
+                    width={width}
+                    />
+                </Grid>
             );
         }
+
+        // console.log(books);
+        return books;
     };
 
   render() {

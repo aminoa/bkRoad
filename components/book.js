@@ -15,7 +15,7 @@ export default class Book extends React.Component {
       status: this.props.status,
       description: this.props.description,
       returnDate: this.props.returnDate,
-      imageURL: this.props.url,
+      imageURL: this.props.imageURL,
       height: this.props.height,
       width: this.props.width
     }
@@ -29,7 +29,7 @@ export default class Book extends React.Component {
           <CardMedia
             component="img"
             height={this.props.height}
-            image={this.props.url}
+            image={this.props.imageURL}
             alt="green iguana"
           />
           <CardContent>
