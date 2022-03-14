@@ -14,8 +14,8 @@ export default function About() {
       <Sidebar loggedIn={true} />
 
       <h1 className={styles.title}> About Us </h1>
-      <body>bkRoad is a nonprofit organization founded to help deliver physical books to those in need. A large percent of the US population does not have access to physical books - by using bkRoad, those in need will get free and efficient access to books through a slick and easy to use web application. </body>
 
+      <body>bkRoad is a nonprofit organization founded to help deliver physical books to those in need. A large percent of the US population does not have access to physical books - by using bkRoad, those in need will get free and efficient access to books through a slick and easy to use web application. </body>
     </div>
   )
 }
