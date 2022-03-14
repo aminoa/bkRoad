@@ -2,9 +2,11 @@
 
 bkRoad is a fast book delivery service. Our only aim is to get books to people. We are passionate about learning.
 
+[Deployment on Amazon Lightsail](https://container-service-1.tp441iqt2m81k.us-east-1.cs.amazonlightsail.com/shelf)
+
 ## Solution
 
-Our product, bkRoad, will solve for this by providing a quick and easy to use delivery service via the use of a web application that will allow library users to order their books from the library and then return it after they finish reading it. It can be shipped via the mail and then returned through the mail as well. While there are book delivery services, there are none which are non-profits and ship library books in an efficient manner. 
+Our product, bkRoad, will solve for this by providing a quick and easy to use delivery service via the use of a web application that will allow library users to order their books from the library and then return it after they finish reading it. It can be shipped via the mail and then returned through the mail as well. While there are book delivery services, there are none which are non-profits and ship library books in an efficient manner.
 
 We will be deploying with AWS Lightsail containers that have a Node.js application to interact with our customers. This will use an SQL database underneath a proxy like Knex and store all of the customer interactions. This will make sure that our solution is scalable, and can handle any loads. With the power of AWS Lightsail containers, we will be able to make the solution can handle any situation.
 
