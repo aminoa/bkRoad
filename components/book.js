@@ -42,6 +42,7 @@ export default class Book extends React.Component {
   }
 
   addShelf() {
+    //blanks button for now
     this.setState({inShelf: true})
   }
 
@@ -89,7 +90,7 @@ export default class Book extends React.Component {
               <div>
                 {/* <p>Add to Cart:  </p> */}
                 
-                <Button onClick={this.addShelf} variant="text" >Add to Shelf</Button>
+                <Button disabled onClick={this.addShelf} variant="text" >Unable to Add to Shelf</Button>
                 {/* <p>Available: {this.state.status}</p> */}
                 <p>Description: {this.state.description}</p> 
               </div>

@@ -15,6 +15,15 @@ class Home extends React.Component{
     // this.textSubmit = this.textSubmit.bind(this);
     this.state.books = this.props.books;
     this.OriginalBooks = this.state.books;
+    // var loggedIn = false;
+
+    // if (typeof window !== "undefined") {
+    //   var localValue = window.localStorage.getItem("isLoggedIn");
+    //   if (localValue) {
+    //     this.setState({loggedIn, localValue});
+    //   }
+    // }
+
   }
 
   textChange(event) {
@@ -52,7 +61,7 @@ class Home extends React.Component{
           <link rel="icon" href="/favicon.ico" />
         </Head>
   
-        <Sidebar loggedIn={true}/> 
+        <Sidebar loggedIn={this.state.loggedIn}/> 
         <SearchBar className={styles.search} textChange={this.textChange} />
 
         <h1 className={styles.personalizetext}>Explore Your Personalized Recommendations</h1>
