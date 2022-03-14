@@ -14,10 +14,14 @@ export default function About() {
       <Sidebar loggedIn={true}/> 
 
       <h1 className={styles.title}> About Us </h1>
-      <body>bkRoad is a nonprofit organization founded to help deliver physical books to those in need. A large percent of the US population does not have 
-        access to physical books - by using bkRoad, those in need will get free and efficient access to books through a slick and easy to use web application. </body>
-      
+      <body>bkRoad is a nonprofit organization founded to help deliver physical books to those in need. Access to libraries are not universally available with distance being a significant factor. Many may be too far from a location or they lack the time to go pick up a book. In fact, only 37.1% of all Americans live within 1 mile to a library and another 31.1% live within 1 - 2 miles. That leaves a significant portion of Americans who don not have easy access to libraries. Yet, reading has many benefits such as strengthened brain connections and improved empathy and many prefer physically reading books rather than reading online. When people don not have the opportunity to read, they lose these critical benefits that have become especially important during the pandemic. 
 
+      That is where we come in! We provide a quick and easy to use delivery service that allows you to order your books from the library and then return it after done reading. It is shipped and returned via the mail. We plan on imporoving this site futher to provide book filters and more so stay tuned. 
+      <br></br><br></br>
+      Members: Aneesh, Calvin, Sachin, Triet, Vikram
+      <br></br><br></br>
+      Special thanks to the Amazon Lightsail Containers Hackathon organizers and our mentor Maxwell Burggraf. 
+      </body>
     </div>
   )
 }
