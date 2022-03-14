@@ -17,7 +17,7 @@ export default class Book extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name,
+      title: this.props.title,
       author: this.props.author,
       status: this.props.status,
       description: this.props.description,
@@ -50,18 +50,18 @@ export default class Book extends React.Component {
       <PopupState variant="popover" popupId="demo-popup-popover">
         {(popupState) => (
           <div>
-            <Button variant="contained" {...bindTrigger(popupState)}>
+            <Button variant="text" {...bindTrigger(popupState)}>
               <Card sx={{maxWidth: parseInt(this.props.width)}} hoverable>
                 <CardActionArea>
                   <CardMedia
                     component="img"
                     height={this.props.height}
                     image={this.props.imageURL}
-                    alt={this.props.name}
+                    alt={this.props.title}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="body1" component="div">
-                      {this.props.name}
+                      {this.props.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {this.state.author} 
@@ -81,9 +81,10 @@ export default class Book extends React.Component {
                 horizontal: 'center',
               }}
             >
-              {/* <Typography sx={{ p:2 }}>Baugettes</Typography> */}
               <div>
-                <p>Available: {this.state.status}</p>
+                {/* <p>Add to Cart:  </p> */}
+                <Button variant="text">Add to Shelf</Button>
+                {/* <p>Available: {this.state.status}</p> */}
                 <p>Description: {this.state.description}</p> 
               </div>
             </Popover>
