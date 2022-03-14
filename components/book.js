@@ -16,6 +16,8 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 export default class Book extends React.Component {
   constructor(props) {
     super(props);
+    this.addShelf = this.addShelf.bind(this);
+
     this.state = {
       title: this.props.title,
       author: this.props.author,
@@ -25,7 +27,7 @@ export default class Book extends React.Component {
       imageURL: this.props.imageURL,
       height: this.props.height,
       width: this.props.width,
-
+      inShelf: this.props.inShelf,
       anchorEl: null,
       setAnchorEl: null,
     }
@@ -39,6 +41,9 @@ export default class Book extends React.Component {
     this.setState({setAncharEl: null, anchorEl: null})
   }
 
+  addShelf() {
+    this.setState({inShelf: true})
+  }
 
   render() {
 
@@ -83,7 +88,8 @@ export default class Book extends React.Component {
             >
               <div>
                 {/* <p>Add to Cart:  </p> */}
-                <Button variant="text">Add to Shelf</Button>
+                
+                <Button onClick={this.addShelf} variant="text" >Add to Shelf</Button>
                 {/* <p>Available: {this.state.status}</p> */}
                 <p>Description: {this.state.description}</p> 
               </div>
