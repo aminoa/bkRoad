@@ -38,12 +38,13 @@ function TemporaryDrawer(props) {
 
     let list;
     if (isLoggedIn) {
-        list = (anchor) => (
+        list =
+        <div>
             <Box
-                sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+                sx={{ width: 250 }}
                 role="presentation"
-                onClick={toggleDrawer(anchor, false)}
-                onKeyDown={toggleDrawer(anchor, false)}
+                onClick={toggleDrawer("left", false)}
+                onKeyDown={toggleDrawer("left", false)}
             >
                 <Image src="/static/images/letters.png" width={960} height={440}/>
                 <Divider />
@@ -88,9 +89,12 @@ function TemporaryDrawer(props) {
                     </ListItem>                    
                 </List>
             </Box>
-        );
+        </div>
+
+        
     } else {
-        list = (anchor) => (
+        list =
+        <div>
             <Box
                 sx={{ width: 250 }}
                 role="presentation"
@@ -108,7 +112,8 @@ function TemporaryDrawer(props) {
                     </ListItem>
                 </List>
             </Box>
-        );
+        </div>
+
     }
 
     return (
@@ -119,7 +124,7 @@ function TemporaryDrawer(props) {
                 open={state["left"]}
                 onClose={toggleDrawer("left", false)}
             >
-                {list("left")}
+                {list}
             </Drawer>
         </div>
     );
@@ -131,6 +136,7 @@ export default class Sidebar extends React.Component {
         
     }
 
+    // eslint-disable-next-line react/display-name
     render() {
         return (
             <div className={styles.topcontainer}>
