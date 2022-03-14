@@ -17,7 +17,7 @@ export default class BookDisplay extends React.Component {
             books.push(
                 <Grid item xs={2}>
                     <Book
-                    name={this.props.books[i].name}
+                    title={this.props.books[i].title}
                     author={this.props.books[i].author}
                     returnDate={this.props.books[i].returnDate}
                     status={this.props.books[i].status}
