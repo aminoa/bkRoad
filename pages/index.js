@@ -93,14 +93,14 @@ export async function getServerSideProps(context) { //triet
           status: "Available"            
       },
       {
-          title: "The wonders",
-          author: "Medel, Elena" ,
+          title: "The Wonders",
+          author: "Elena Medel" ,
           imageURL: "https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9781643753027&erroroverride=1",
           description: "Through the rich inner lives of two ordinary, unforgettable women, award-winning Spanish poet Elena Medel brings a half-century of the feminist movement to life, revealing the simmering truth that money is ultimately the limiting factor in most women's lives",
           status: "Available"          
       },
       {
-          title: "East of hounslow",
+          title: "East of Hounslow",
           author: "Khurrum Rahman" ,
           imageURL: "https://contentcafe2.btol.com/ContentCafe/Jacket.aspx?UserID=NYPL49807&Password=CC68707&Return=1&Type=L&Value=9780008384661&erroroverride=1",
           description: "No description available",
