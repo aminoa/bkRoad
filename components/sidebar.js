@@ -15,6 +15,8 @@ import HelpIcon from '@mui/icons-material/Help';
 import BookIcon from '@mui/icons-material/Book';
 import SettingsIcon from '@mui/icons-material/Settings';
 import MenuIcon from '@mui/icons-material/Menu';
+import Divider from '@mui/material/Divider';
+import Image from 'next/image'
 
 function TemporaryDrawer(props) {
     const [state, setState] = React.useState({
@@ -43,6 +45,8 @@ function TemporaryDrawer(props) {
                 onClick={toggleDrawer(anchor, false)}
                 onKeyDown={toggleDrawer(anchor, false)}
             >
+                <Image src="/static/images/letters.png" width={960} height={440}/>
+                <Divider />
                 <List>
                     <ListItem button key={"Home"}>
                         <ListItemIcon> 
