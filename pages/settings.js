@@ -65,13 +65,13 @@ export default class Settings extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <Stack spacing={2}>
               <p>Name</p>
-              <TextField className={styles.textfield} id="name" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange}/>
+              <TextField className={styles.textfield} id="name" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange} defaultValue="John"/>
               <p>Email</p>
-              <TextField className={styles.textfield} id="email" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange}/>
+              <TextField className={styles.textfield} id="email" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange} defaultValue="john.doe@gmail.com"/>
               <p>Password</p>
-              <TextField className={styles.textfield} id="password" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange}/>
+              <TextField className={styles.textfield} type="password" id="password" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange} defaultValue="test1234"/>
               <p>Address</p>
-              <TextField className={styles.textfield} id="address" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange}/>
+              <TextField className={styles.textfield} id="address" variant="outlined" size="small" fullWidth={false} onChange={this.handleChange} defaultValue="6 Jay-St Metrotech"/>
               <Button className={styles.savesettings} variant="contained" type="submit"> Save Changes</Button>
               <Snackbar 
                 anchorOrigin={{
