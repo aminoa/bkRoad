@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Footer from "../components/footer.js"
-
+import Router from 'next/router'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class LoginForm extends React.Component {
     this.state = {email : '', password: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.state.isLoggedIn = false;
   }
 
   handleChange(event) { 
@@ -28,8 +29,13 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A submission occured');
-    event.preventDefault();
+    // alert('A submission occured');
+
+    event.preventDefault();    
+    useEffect(() => {
+      sessionStorage.setItem('state', "isLoggedIn")
+    }, true)
+    Router.push('/')
     //something else 
   }
 

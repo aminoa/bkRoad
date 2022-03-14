@@ -18,7 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Divider from '@mui/material/Divider';
 import Image from 'next/image'
 
-function TemporaryDrawer(props) {
+function TemporaryDrawer(isLoggedIn) {
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -26,7 +26,7 @@ function TemporaryDrawer(props) {
         right: false,
     });
     
-    const isLoggedIn = props.isLoggedIn;
+    // const isLoggedIn = isLoggedIn;
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -37,7 +37,8 @@ function TemporaryDrawer(props) {
     };
 
     let list;
-    if (isLoggedIn) {
+    console.log(isLoggedIn.isLoggedIn);
+    if (isLoggedIn.isLoggedIn) {
         list =
         <div>
             <Box
@@ -98,15 +99,15 @@ function TemporaryDrawer(props) {
             <Box
                 sx={{ width: 250 }}
                 role="presentation"
-                onClick={toggleDrawer(anchor, false)}
-                onKeyDown={toggleDrawer(anchor, false)}
+                onClick={toggleDrawer("left", false)}
+                onKeyDown={toggleDrawer("left", false)}
             >
                 <List>
                     <ListItem button key={"Login"}>
                         <ListItemIcon> 
                             <LoginIcon /> 
                         </ListItemIcon>
-                        <Link underline="none" color="inherit" href="/">
+                        <Link underline="none" color="inherit" href="/login">
                             <ListItemText primary={"Login"} />
                         </Link>
                     </ListItem>
@@ -133,14 +134,14 @@ function TemporaryDrawer(props) {
 export default class Sidebar extends React.Component {
     constructor(props) {
         super(props);
-        
+        this.state = {loggedIn: this.props.loggedIn};
     }
 
     // eslint-disable-next-line react/display-name
     render() {
         return (
             <div className={styles.topcontainer}>
-                <TemporaryDrawer isLoggedIn={true}/>
+                <TemporaryDrawer isLoggedIn={this.state.loggedIn}/>
                 {/* <Image className="logo" src="/../static/images/main_logo.png" height="62" width="137"/> */}
                 {/* <SearchBar textChange={this.props.textChange} textSubmit={this.props.textSubmit} /> */}
                 {/* <LoginItems loggedIn={this.props.loggedIn}/> */}
